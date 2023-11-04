@@ -4,6 +4,12 @@ import Todo from "./Todo";
 import TodoList from "./TodoList";
 
 function App(props) {
+  const todos = [
+    { id: "todo-0", item: "eat" },
+    { id: "todo-1", item: "sleep" },
+    { id: "todo-2", item: "run" }
+  ];
+
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
@@ -20,7 +26,11 @@ function App(props) {
           name="text"
           autoComplete="off"
         />
-        <button type="submit" className="btn btn__primary btn__lg" onClick={addTodo}>
+        <button
+          type="submit"
+          className="btn btn__primary btn__lg"
+          onClick={addTodo}
+        >
           Add
         </button>
       </form>
@@ -42,7 +52,7 @@ function App(props) {
         </button>
       </div>
       <h2 id="list-heading">3 tasks remaining</h2>
-      <TodoList/>
+      <TodoList todos={todos}/>
     </div>
   );
 }
