@@ -3,14 +3,24 @@ import React from "react";
 
 class TodoList extends React.Component {
   constructor(props) {
+    console.log("props");
+    console.log(props);
     super(props);
     // 构造函数是唯一可以给state设值的地方，state设值必须用setState
-    this.setState({ todos: props.todos });
+    this.state = { todos: props.todos };
+    console.log("state: " + JSON.stringify(this.state));
   }
 
+/*   addTodo(item) {
+    const todoArray = this.state.todos.push({ item: item, id: item });
+    this.setState(todoArray);
+  } */
+
   render() {
+    console.log("state:" + this.state);
+
     const list = this.state.todos.map((todo) => {
-      return <Todo item="eat" id="todo-0" />;
+      return <Todo item={todo.item} id={todo.id} />;
     });
     return (
       <ul
