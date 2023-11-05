@@ -26,11 +26,11 @@ class App extends React.Component {
 
   addTodo() {
     const item = document.getElementById("new-todo-input").value;
-    const todoArray = this.state.todos.push({ item: item, id: item });
+    // const todoArray = this.state.todos.push({ item: item, id: item });
     console.log("todoArray");
-    console.log(JSON.stringify(todoArray));
+    // console.log(JSON.stringify(todoArray));
     debugger
-    this.setState({ todos: todoArray });
+    this.setState({ todos: [...this.state.todos, { item: item, id: item }] });
   };
 
   render() {
