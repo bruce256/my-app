@@ -2,13 +2,12 @@ import Todo from "./Todo";
 import React from "react";
 
 class TodoList extends React.Component {
+
+  // 仅在组件初次加载的时候调用，后续渲染的时候不会调用
   constructor(props) {
-    console.log("props");
-    console.log(props);
     super(props);
     // 构造函数是唯一可以给state设值的地方，state设值必须用setState
-    this.state = { todos: props.todos };
-    console.log("state: " + JSON.stringify(this.state));
+    // this.state = { todos: props.todos };
   }
 
 /*   addTodo(item) {
@@ -17,9 +16,7 @@ class TodoList extends React.Component {
   } */
 
   render() {
-    console.log("state:" + this.state);
-
-    const list = this.state.todos.map((todo) => {
+    const list = this.props.todos.map((todo) => {
       return <Todo item={todo.item} id={todo.id} />;
     });
     return (
