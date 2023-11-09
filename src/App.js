@@ -15,18 +15,16 @@ class App extends React.Component {
     super(props);
     this.state = {
       todos: [
-        { id: "todo-0", item: "eat" },
-        { id: "todo-1", item: "sleep" },
-        { id: "todo-2", item: "run" },
+        { id: "todo-0", item: "eat", complete: false },
+        { id: "todo-1", item: "sleep", complete: true },
+        { id: "todo-2", item: "run", complete: false },
       ],
     };
   }
 
   addTodo() {
     const item = document.getElementById("new-todo-input").value;
-    // const todoArray = this.state.todos.push({ item: item, id: item });
     const todoArray = [...this.state.todos, { item: item, id: item }];
-    console.log(JSON.stringify(todoArray));
     this.setState({ todos: todoArray });
   }
 
@@ -80,11 +78,4 @@ class App extends React.Component {
     );
   }
 }
-
-/* function addTodo() {
-  alert("add todo");
-  var todo = new Todo();
-  document.getElementById("todoList").appendChild(todo);
-}
- */
 export default App;
